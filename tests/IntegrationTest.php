@@ -13,7 +13,7 @@ class IntegrationTest extends TestCase
         return [VisualDiffServiceProvider::class];
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $files = glob(__DIR__.'/temp/*.png');
         array_map('unlink', $files);

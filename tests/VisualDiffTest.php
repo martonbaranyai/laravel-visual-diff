@@ -4,10 +4,13 @@ namespace BeyondCode\VisualDiff\Tests;
 
 
 use BeyondCode\VisualDiff\VisualDiff;
+use DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
 use PHPUnit\Framework\TestCase;
 
 class VisualDiffTest extends TestCase
 {
+    use ArraySubsetAsserts;
+
     /** @test */
     public function it_can_create_save_commands()
     {
@@ -78,6 +81,8 @@ class VisualDiffTest extends TestCase
 
         $output = VisualDiff::diff($file1, $file2)
             ->save($output);
+
+        $this->assertNotNull($output);
 
         $this->assertSame(184, $output->pixels);
         $this->assertSame(7.36, $output->error_percentage);
