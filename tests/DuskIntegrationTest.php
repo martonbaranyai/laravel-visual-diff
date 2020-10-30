@@ -84,7 +84,7 @@ class DuskIntegrationTest extends TestCase
                     ->visualDiff();
             });
         } catch (ExpectationFailedException $e) {
-            $this->assertContains(
+            $this->assertStringContainsString(
                 'The visual diff for it_creates_a_diff has a higher pixel diff than the allowed maximum',
                 $e->getMessage()
             );
