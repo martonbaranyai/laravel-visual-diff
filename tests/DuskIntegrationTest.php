@@ -33,7 +33,7 @@ class DuskIntegrationTest extends TestCase
         );
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $files = glob(__DIR__.'/temp/*.png');
         array_map('unlink', $files);
@@ -84,7 +84,7 @@ class DuskIntegrationTest extends TestCase
                     ->visualDiff();
             });
         } catch (ExpectationFailedException $e) {
-            $this->assertContains(
+            $this->assertStringContainsString(
                 'The visual diff for it_creates_a_diff has a higher pixel diff than the allowed maximum',
                 $e->getMessage()
             );

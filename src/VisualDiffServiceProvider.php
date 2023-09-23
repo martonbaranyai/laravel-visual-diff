@@ -31,7 +31,7 @@ class VisualDiffServiceProvider extends ServiceProvider
 
             if (is_null($name)) {
                 // Guess the test name from the backtrace
-                $name = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5)[4]['function'];
+                $name = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5)[3]['function'];
             }
 
             $testResolutions = config('visualdiff.resolutions');
@@ -53,7 +53,7 @@ class VisualDiffServiceProvider extends ServiceProvider
         TestResponse::macro('visualDiffForResolutions', function (array $resolutions, $name = null) {
             if (is_null($name)) {
                 // Guess the test name from the backtrace
-                $name = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5)[4]['function'];
+                $name = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5)[3]['function'];
             }
 
             return $this->visualDiff($name, $resolutions);
@@ -64,7 +64,7 @@ class VisualDiffServiceProvider extends ServiceProvider
 
                 if (is_null($name)) {
                     // Guess the test name from the backtrace
-                    $name = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 7)[6]['function'];
+                    $name = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 7)[5]['function'];
                 }
 
                 $testResolutions = config('visualdiff.resolutions');
@@ -87,7 +87,7 @@ class VisualDiffServiceProvider extends ServiceProvider
             Browser::macro('visualDiffForResolutions', function (array $resolutions, $name = null) {
                 if (is_null($name)) {
                     // Guess the test name from the backtrace
-                    $name = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 7)[6]['function'];
+                    $name = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 7)[5]['function'];
                 }
 
                 return $this->visualDiff($name, $resolutions);

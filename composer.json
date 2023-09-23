@@ -23,6 +23,7 @@
         "spatie/browsershot": "^3.58"
     },
     "require-dev": {
+        "dms/phpunit-arraysubset-asserts": "^0.2.1",
         "orchestra/testbench-dusk": "^8.10",
         "phpunit/phpunit": "^9.5.10"
     },
